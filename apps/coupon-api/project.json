@@ -1,0 +1,26 @@
+{
+  "name": "coupon-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/coupon-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "coupon-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "coupon-api:build:development"
+        },
+        "production": {
+          "buildTarget": "coupon-api:build:production"
+        }
+      }
+    }
+  }
+}
