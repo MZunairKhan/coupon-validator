@@ -1,0 +1,27 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;//calc( - 64px);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.app-content {
+    height: 100%;
+}
+
+.app-sidenav {
+    width: 128px;
+
+    .sidenav-menu {
+        display: flex;
+        justify-content: center;
+    }
+
+    button {
+        width: 100%;
+        border-radius: 0px;
+    }
+}
