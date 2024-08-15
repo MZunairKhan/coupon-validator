@@ -1,9 +1,81 @@
 {
   "name": "coupon-validator",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/coupon-validator",
   "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/coupon-validator/src",
   "tags": [],
-  "// targets": "to see all targets run: nx show project coupon-validator --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/coupon-validator",
+        "index": "apps/coupon-validator/src/index.html",
+        "browser": "apps/coupon-validator/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/coupon-validator/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/coupon-validator/public"
+          }
+        ],
+        "styles": ["apps/coupon-validator/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "coupon-validator:build:production"
+        },
+        "development": {
+          "buildTarget": "coupon-validator:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "coupon-validator:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/coupon-validator/jest.config.ts"
+      }
+    }
+  }
 }
