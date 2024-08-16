@@ -1,0 +1,25 @@
+.home-card {
+    margin-top: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.choice-card {
+    width: 20vw;
+    margin: 8px;
+
+    @media (max-width: 480px) {
+        width: auto;
+    }
+
+    span {
+        cursor: pointer;
+    }
+}

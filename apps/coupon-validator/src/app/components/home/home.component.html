@@ -1,1 +1,14 @@
-<p>home works!</p>
+<h2>Welcome</h2>
+
+<mat-card appearance="raised" class="home-card">
+    <mat-card appearance="outlined" class="choice-card">
+        <mat-card-content>
+            <span [routerLink]="['/generate']">Generate Coupons</span>
+        </mat-card-content>
+    </mat-card>
+    <mat-card appearance="outlined" class="choice-card">
+        <mat-card-content>
+            <span [routerLink]="['/view']">View Coupons</span>
+        </mat-card-content>
+    </mat-card>
+</mat-card>
