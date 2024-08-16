@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './generate-coupon.component.html',
-  styleUrl: './generate-coupon.component.css',
+  styleUrl: './generate-coupon.component.scss',
 })
 export class GenerateCouponComponent {}
