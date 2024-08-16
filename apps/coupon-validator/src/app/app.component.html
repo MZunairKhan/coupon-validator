@@ -1,8 +1,9 @@
 <mat-drawer-container class="app-container" autosize>
     <mat-drawer #drawer class="app-sidenav" mode="over">
         <div class="sidenav-menu"><h2>Menu</h2></div>
-        <button mat-stroked-button>Generate</button>
-        <button mat-stroked-button>View</button>
+        <button mat-raised-button [routerLink]="['/home']" (click)="drawer.close()">Home</button>
+        <button mat-raised-button [routerLink]="['/generate']" (click)="drawer.close()">Generate</button>
+        <button mat-raised-button [routerLink]="['/view']" (click)="drawer.close()">View</button>
     </mat-drawer>
   
     <div class="app-content">
@@ -39,7 +40,7 @@
     </button>
     <button mat-menu-item>
         <mat-icon>settings</mat-icon>
-        <span>Metadata</span>
+        <span>Settings</span>
     </button>
     <button mat-menu-item>
         <mat-icon>logout</mat-icon>
